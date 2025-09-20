@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:cartzy_app/feature/home/data/model/response/category_response_dto.dart';
+import 'package:cartzy_app/feature/home/domain/entities/category_entities.dart';
 import 'package:cartzy_app/feature/home/widgets/tab_item_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class TabContainerWidget extends StatefulWidget {
     super.key,
     required this.categories,
   });
-  final List<categoryResponseDto> categories;
+  final List<CategoryEntities> categories;
 
   @override
   State<TabContainerWidget> createState() => _TabContainerWidgetState();

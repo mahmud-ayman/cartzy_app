@@ -1,6 +1,8 @@
 import 'package:cartzy_app/feature/cart/view/cart_screen.dart';
 import 'package:cartzy_app/feature/favorite/view/favorite_screen.dart';
 import 'package:cartzy_app/feature/home/data/repo/repository/home_repository_impl.dart';
+import 'package:cartzy_app/feature/home/domain/use_case/get_category_use_case.dart';
+import 'package:cartzy_app/feature/home/domain/use_case/get_product_use_case.dart';
 import 'package:cartzy_app/feature/home/presentation/view/home_screen.dart';
 import 'package:cartzy_app/feature/home/presentation/view_model/home_cubit.dart';
 import 'package:cartzy_app/feature/profile/view/profile_screen.dart';
@@ -19,7 +21,8 @@ class AppSection extends StatefulWidget {
 class _AppSectionState extends State<AppSection> {
   List<Widget> widgetList = [
     BlocProvider<HomeCubit>(
-      create: (context) => HomeCubit(injectableHomeRepository())
+      create: (context) => HomeCubit(
+          injectableGetProductUseCase(), injectableGetCategoryUseCase())
         ..getCategory()
         ..getProduct(),
       child: HomeScreen(),

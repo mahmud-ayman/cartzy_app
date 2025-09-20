@@ -1,5 +1,6 @@
 import 'package:cartzy_app/core/common/widget/product_item_widget.dart';
 import 'package:cartzy_app/feature/home/data/model/response/category_response_dto.dart';
+import 'package:cartzy_app/feature/home/domain/entities/category_entities.dart';
 import 'package:cartzy_app/feature/home/presentation/view_model/home_cubit.dart';
 import 'package:cartzy_app/feature/home/widgets/tab_container_widget.dart';
 import 'package:flutter/material.dart';
@@ -121,11 +122,11 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-var dummyListOfCategory = <categoryResponseDto>[
-  categoryResponseDto(name: "dumyyyyy"),
-  categoryResponseDto(name: "dumyyyyy"),
-  categoryResponseDto(name: "dumyyyyy"),
-  categoryResponseDto(name: "dumyyyyy"),
-  categoryResponseDto(name: "dumyyyyy"),
-  categoryResponseDto(name: "dumyyyyy"),
+var dummyListOfCategory = <CategoryEntities>[
+  CategoryEntities(name: "dumyyyyy"),
+  CategoryEntities(name: "dumyyyyy"),
+  CategoryEntities(name: "dumyyyyy"),
+  CategoryEntities(name: "dumyyyyy"),
+  CategoryEntities(name: "dumyyyyy"),
+  CategoryEntities(name: "dumyyyyy"),
 ];

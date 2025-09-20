@@ -1,9 +1,10 @@
 import 'package:cartzy_app/feature/home/data/model/response/category_response_dto.dart';
+import 'package:cartzy_app/feature/home/domain/entities/category_entities.dart';
 import 'package:flutter/material.dart';
 
 class TabItemWidget extends StatelessWidget {
   const TabItemWidget({super.key, required this.category});
-  final categoryResponseDto category;
+  final CategoryEntities category;
 
   @override
   Widget build(BuildContext context) {

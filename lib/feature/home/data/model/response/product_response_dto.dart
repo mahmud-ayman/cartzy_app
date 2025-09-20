@@ -1,4 +1,5 @@
 import 'package:cartzy_app/feature/home/data/model/response/category_response_dto.dart';
+import 'package:cartzy_app/feature/home/domain/entities/product_entities.dart';
 
 class productResponseDto {
   int? id;
@@ -35,6 +36,16 @@ class productResponseDto {
     creationAt = json['creationAt'];
     updatedAt = json['updatedAt'];
   }
+
+  ProductEntities toEntities() => ProductEntities(
+        id: id!,
+        title: title!,
+        slug: slug!,
+        price: price!,
+        description: description!,
+        category: category!.toEntity(),
+        images: images!,
+      );
 }
 
 class Category {
