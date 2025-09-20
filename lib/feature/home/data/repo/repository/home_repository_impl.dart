@@ -1,4 +1,5 @@
 import 'package:cartzy_app/core/network/network.dart';
+import 'package:cartzy_app/feature/home/data/model/product_response_dto.dart';
 import 'package:cartzy_app/feature/home/data/model/response/category_response_dto.dart';
 import 'package:cartzy_app/feature/home/data/repo/data_source/home_data_source_contract.dart';
 import 'package:cartzy_app/feature/home/data/repo/data_source/home_data_source_impl.dart';
@@ -11,6 +12,10 @@ class HomeRepositoryImpl implements HomeRepositoryContract {
   @override
   Future<NetworkResult<List<categoryResponseDto>>> getCategory() =>
       _dataSource.getCategory();
+
+  @override
+  Future<NetworkResult<List<productResponseDto>>> getProduct() =>
+      _dataSource.getProduct();
 }
 
 HomeRepositoryContract injectableHomeRepository() =>

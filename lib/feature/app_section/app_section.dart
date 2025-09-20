@@ -1,8 +1,11 @@
 import 'package:cartzy_app/feature/cart/view/cart_screen.dart';
 import 'package:cartzy_app/feature/favorite/view/favorite_screen.dart';
+import 'package:cartzy_app/feature/home/data/repo/repository/home_repository_impl.dart';
 import 'package:cartzy_app/feature/home/presentation/view/home_screen.dart';
+import 'package:cartzy_app/feature/home/presentation/view_model/home_cubit.dart';
 import 'package:cartzy_app/feature/profile/view/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AppSection extends StatefulWidget {
@@ -15,7 +18,12 @@ class AppSection extends StatefulWidget {
 
 class _AppSectionState extends State<AppSection> {
   List<Widget> widgetList = [
-    HomeScreen(),
+    BlocProvider<HomeCubit>(
+      create: (context) => HomeCubit(injectableHomeRepository())
+        ..getCategory()
+        ..getProduct(),
+      child: HomeScreen(),
+    ),
     CartScreen(),
     FavoriteScreen(),
     ProfileScreen(),
