@@ -10,7 +10,6 @@ class ProductItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // نعمل حماية من null
     final String imageUrl =
         (product != null && product.images != null && product.images.isNotEmpty)
             ? product.images.first

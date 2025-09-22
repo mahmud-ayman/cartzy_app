@@ -61,12 +61,12 @@ class HomeScreen extends StatelessWidget {
                   ),
                 );
               }
-              if (state is GetCatergorySuccess) {
-                return TabContainerWidget(
-                  categories: context.read<HomeCubit>().listOfCategory,
-                );
+              if (state is GetCategoryfailure) {
+                return SizedBox.shrink();
               }
-              return const SizedBox.shrink();
+              return TabContainerWidget(
+                categories: context.read<HomeCubit>().listOfCategory,
+              );
             },
           ),
 
@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
               if (state is GetProductLoading) {
                 return Expanded(
                   child: GridView.builder(
-                    itemCount: 6, // عدد افتراضي للسكيليتون
+                    itemCount: 6,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
