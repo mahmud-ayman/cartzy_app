@@ -1,6 +1,7 @@
 import 'package:cartzy_app/feature/app_section/app_section.dart';
 import 'package:cartzy_app/feature/auth/presentation/view/login_screen.dart';
 import 'package:cartzy_app/feature/auth/presentation/view/register_screen.dart';
+import 'package:cartzy_app/feature/home/presentation/view/home_screen.dart';
 import 'package:cartzy_app/feature/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -15,12 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "User App",
-      initialRoute: LoginScreen.routeName,
+      initialRoute: AppSection.routeName,
       routes: {
         OnboardingScreen.routeName: (context) => const OnboardingScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         RegisterScreen.routeName: (context) => const RegisterScreen(),
         AppSection.routeName: (context) => const AppSection(),
+        HomeScreen.routeName: (context) => HomeScreen(),
       },
     );
   }

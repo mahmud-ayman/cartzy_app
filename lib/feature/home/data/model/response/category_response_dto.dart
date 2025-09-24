@@ -1,3 +1,5 @@
+import 'package:cartzy_app/feature/home/domain/entities/category_entities.dart';
+
 class categoryResponseDto {
   int? id;
   String? name;
@@ -33,4 +35,7 @@ class categoryResponseDto {
     data['updatedAt'] = this.updatedAt;
     return data;
   }
+
+  CategoryEntities toEntity() => CategoryEntities(
+      id: id ?? 0, name: name ?? "", slug: slug ?? "", image: image ?? "");
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cartzy_app/core/network/network.dart';
+import 'package:cartzy_app/feature/home/data/model/response/product_response_dto.dart';
 import 'package:cartzy_app/feature/home/data/model/response/category_response_dto.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -23,6 +24,22 @@ class HomeApi {
       return NetworkError(e.toString());
     }
   }
-}
 
-void main() {}
+  Future<NetworkResult<List<productResponseDto>>> getProduct() async {
+    try {
+      //https://api.escuelajs.co/api/v1/products/
+
+      Uri url = Uri.https("api.escuelajs.co", "/api/v1/products/");
+
+      var response = await http.get(url);
+      String responseBody = response.body;
+      var json = jsonDecode(responseBody) as List;
+      var listOfPrduct =
+          json.map((e) => productResponseDto.fromJson(e)).toList();
+
+      return NetworkSuccess(listOfPrduct);
+    } catch (e) {
+      return NetworkError(e.toString());
+    }
+  }
+}
